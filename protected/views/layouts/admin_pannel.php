@@ -4,9 +4,9 @@
 if (Yii::app()->getModule('user')->isAdmin()){
     $left_menu = array(
         array('icon'=>'icon-show-big-thumbnails','url'=>'','active'=>''),
-        array('icon'=>'icon-pencil','url'=>'/admin/content','active'=>''),
-        array('icon'=>'icon-cogwheels','url'=>'','active'=>''),
-        array('icon'=>'icon-user','url'=>'/user/admin','active'=>''),
+        array('icon'=>'icon-more-items','url'=>'/admin/content','linkOptions'=>array('title'=>'文章管理'),'active'=>''),
+        array('icon'=>'icon-group','url'=>'/user/admin','linkOptions'=>array('title'=>'用户管理'),'active'=>''),
+        array('icon'=>'icon-cogwheels','url'=>'ssss','active'=>'','linkOptions'=>array('title'=>'设置')),
     );
 } else {
     $left_menu = array(

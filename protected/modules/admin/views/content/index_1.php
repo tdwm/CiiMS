@@ -2,7 +2,7 @@
     'dataProvider' => $model->search(),
     'itemView' => '_itemView',
     'summaryText' => false,
-    'sorterHeader' => '<h4 class="pull-left">Manage Content</h4>Sort By:',
+    'sorterHeader' => '排序:',
     'sortableAttributes' => array(
         'title',
         'created',

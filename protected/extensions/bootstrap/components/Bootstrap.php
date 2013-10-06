@@ -32,6 +32,7 @@ class Bootstrap extends CApplicationComponent
 	const PLUGIN_DATERANGEPICKER = 'daterangepicker';
 	const PLUGIN_HTML5EDITOR = 'wysihtml5';
 	const PLUGIN_COLORPICKER = 'colorpicker';
+	const PLUGIN_UEDITOR = 'ueditor';
 
 	/**
 	 * @var boolean whether to register the Bootstrap core CSS (bootstrap.min.css).

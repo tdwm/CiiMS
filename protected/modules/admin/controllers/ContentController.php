@@ -2,6 +2,7 @@
 
 class ContentController extends ACiiController
 {
+    public $layout ='contentWrapper';
 	/**
 	 * Handles the creation and editing of Content models.
      * If no id is provided, a new model will be created. Otherwise attempt to edit
@@ -58,14 +59,14 @@ class ContentController extends ACiiController
 
 			if($model2->save()) 
 			{
-				Yii::app()->user->setFlash('success', 'Content has been updated');
+				Yii::app()->user->setFlash('success', '文章修改成功');
 				$this->redirect(array('save','id'=>$model2->id));
 			}
 			else
 			{
 				$model->attributes = $model2->attributes;
 				$model->vid = $model2->vid-1;
-				Yii::app()->user->setFlash('error', 'There was an error saving your content. Please try again');
+				Yii::app()->user->setFlash('error', '保存文章错误. 请重新提交');
 			}
 		}
 
@@ -235,34 +236,34 @@ class ContentController extends ACiiController
 	 * Handles file uploading for the controller
 	 */
 	public function actionUpload($id)
-	{
-		if (Yii::app()->request->isPostRequest)
-		{
-			Yii::import("ext.EAjaxUpload.qqFileUploader");
-			$path = '/';
-	        $folder=Yii::app()->getBasePath() .'/../uploads' . $path;// folder for uploaded files
-	        $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif', 'bmp');//array("jpg","jpeg","gif","exe","mov" and etc...
-	        $sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
-	        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
-	        $result = $uploader->handleUpload($folder);
-			
-			if ($result['success'] = true)
-			{
-				$meta = ContentMetadata::model()->findbyAttributes(array('content_id' => $id, 'key' => $result['filename']));
-				if ($meta == NULL)
-					$meta = new ContentMetadata;
-				$meta->content_id = $id;
-				$meta->key = $result['filename'];
-				$meta->value = '/uploads' . $path . $result['filename'];
-				$meta->save();
-				$result['filepath'] = '/uploads/' . $result['filename'];
-			}
-	        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
- 
-        echo $return;
-		}	
-		Yii::app()->end();	
-	}
+    {
+        if (Yii::app()->request->isPostRequest)
+        {
+            Yii::import("ext.EAjaxUpload.qqFileUploader");
+            $path = '/';
+            $folder=Yii::app()->getBasePath() .'/../assets/uploads' . $path;// folder for uploaded files
+            $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif', 'bmp');//array("jpg","jpeg","gif","exe","mov" and etc...
+            $sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
+            $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
+            $result = $uploader->handleUpload($folder);
+
+            if ($result['success'] = true)
+            {
+                $meta = ContentMetadata::model()->findbyAttributes(array('content_id' => $id, 'key' => $result['filename']));
+                if ($meta == NULL)
+                    $meta = new ContentMetadata;
+                $meta->content_id = $id;
+                $meta->key = $result['filename'];
+                $meta->value = '/assets/uploads' . $path . $result['filename'];
+                $meta->save();
+                $result['filepath'] = '/assets/uploads/' . $result['filename'];
+            }
+            $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+
+            echo $return;
+        }	
+        Yii::app()->end();	
+    }
 
 	/**
 	 * Displays a CMarkDownParser preview of the content to be displayed

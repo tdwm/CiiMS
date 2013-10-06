@@ -68,7 +68,7 @@ return array(
             'cookieMode'    => 'only', 
         ),
         'urlManager' => array(
-           // 'class'          => 'CiiURLManager',
+            'class'          => 'CiiURLManager',
             //'cache'          => true,
             'urlFormat'      => 'path',
             'showScriptName' => false

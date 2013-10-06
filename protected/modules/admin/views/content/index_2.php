@@ -10,7 +10,7 @@
                 'buttonType' => 'button',
                 'type' => 'danger',
                 'size' => 'small',
-                'label' => 'Delete Selected',
+                'label' => '删除',
                 'click' => 'js:function(values) {
                     $.post("content/deleteMany", values, function(data) {
                         values.each(function() {
@@ -27,12 +27,12 @@
         'columns' => array(
             'author_id'=>array(
                 'name'=>'author_id',
-                'value'=>'$data->author->displayName'
+                'value'=>'$data->author->username'
             ),
             'title',
             'status'=>array(
                 'name'=>'status',
-                'value'=>'array_search($data->status, array("Draft"=>0, "Published"=>1))'
+                'value'=>'array_search($data->status, array("草稿"=>0, "发布"=>1))'
             ),
             'category_id'=>array(
                 'name'=>'category_id',

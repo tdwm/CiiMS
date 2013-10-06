@@ -18,12 +18,8 @@
                             'fixed' => 'top',
                             'htmlOptions' => array('style' => 'position:absolute'),
                             'brand'=>'',
-                            'items'=> array(
-                                array(
-                                    'class' => 'bootstrap.widgets.TbMenu',
-                                    'items'=>$this->menu,
-                                )
-                            )
+                            'collapse' => true,
+                            'items'=> $this->menu,
                         ));
                     }
                 ?>

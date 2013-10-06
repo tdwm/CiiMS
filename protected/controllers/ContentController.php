@@ -286,7 +286,7 @@ class ContentController extends CiiController
 	 */
 	public function actionList()
 	{
-		$this->setPageTitle('All Content');
+		$this->setPageTitle('全部内容');
 		$this->setLayout('default');
 		
 		$this->breadcrumbs = array('Blogroll');

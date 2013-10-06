@@ -31,9 +31,9 @@ class CommentsController extends ACiiController
      */
 	public function actionApprove($id=NULL)
 	{
-		$comment = Comments::model()->findByPk($id);
+		$model = Comments::model()->findByPk($id);
 		if ($model === NULL)
-            throw new CHttpException(400, 'Unable to load comment');
+            throw new CHttpException(400, '查询评论失败');
         
 		if ($model->approved == -1)
 			$model->approved = 1;
@@ -41,9 +41,9 @@ class CommentsController extends ACiiController
 			$model->approved ^= 1;
 		
         if ($model->save())
-            Yii::app()->user->setFlash('success', 'Comment has been altered');
+            Yii::app()->user->setFlash('success', '评论已经修改');
         else
-            Yii::app()->user->setFlash('warning', 'Unable to un/approve comment');
+            Yii::app()->user->setFlash('warning', '不能 未通过/通过 评论');
         
         $this->redirect($this->createUrl('/admin/content/comments/id/' . $model->content->id));
 	}

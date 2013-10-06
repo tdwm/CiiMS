@@ -1,13 +1,13 @@
 <?php $this->beginWidget('bootstrap.widgets.TbBox', array(
-    'title' => 'Comments',
-    'headerIcon' => 'icon-comment',
+    'title' => '评论列表',
+    'headerIcon' => 'icon-conversation',
     'headerButtons' => array(
         array(
             'class' => 'bootstrap.widgets.TbButton',
             'type' => 'primary',
             'size' => 'small',
             'url' => '#comment-box', 
-            'label' => 'Comment',
+            'label' => '评论',
             'htmlOptions' => array(
                 'style' => 'margin-right: 5px;'
             )
@@ -19,11 +19,11 @@
             <div class="user-photo rounded-img"><?php echo CHtml::image($comment->author->gravatarImage(40)); ?></div>
             <div class="comment">
                 <div class="info-row">
-                    <span class="name"><?php echo $comment->author->name; ?>:</span>
+                    <span class="name"><?php echo $comment->author->username; ?>:</span>
                     <span class="timeago" title="<?php echo CTimestamp::formatDate('M d, Y @ h:i a', strtotime($comment->created)); ?>"><?php echo CTimestamp::formatDate('M d, Y @ h:i a', strtotime($comment->created)); ?></span>
                     <span class="options">
-                        <?php echo CHtml::link('Delete', $this->createUrl('/admin/comments/delete/id/' . $comment->id), array('data-attr-id' => $comment->id, 'class'=>'delete-comment')); ?> |
-                        <?php echo CHtml::link($comment->approved == 1 ? 'Flag' : 'Approve', $this->createUrl('/admin/comments/approve/id/' . $comment->id), array('data-attr-id' => $comment->id, 'class' => 'flag-comment')); ?>
+                        <?php echo CHtml::link('删除', $this->createUrl('/admin/comments/delete/id/' . $comment->id), array('data-attr-id' => $comment->id, 'class'=>'delete-comment')); ?> |
+                        <?php echo CHtml::link($comment->approved == 1 ? '标记' : '确认', $this->createUrl('/admin/comments/approve/id/' . $comment->id), array('data-attr-id' => $comment->id, 'class' => 'flag-comment')); ?>
                     </span>
                 </div>
                 <?php echo $md->safeTransform($comment->comment); ?>
@@ -36,7 +36,7 @@
 <?php $this->endWidget(); ?>
 
 <?php $this->beginWidget('bootstrap.widgets.TbBox', array(
-    'title' => 'New Comment',
+    'title' => '添加评论',
     'headerIcon' => 'icon-leaf',
 )); ?>
     <a id="comment-box"></a>
@@ -46,11 +46,11 @@
             <div id="close"></div>
             <div style="clear:both"></div>
         </div>
-        <div id="b" style="color:#999">Comment on this post</div> 
+        <div id="b" style="color:#999">请填写评论……</div> 
     </div>
     <?php $this->widget('bootstrap.widgets.TbButton', array(
         'type' => 'success',
-        'label' => 'Submit',
+        'label' => '提交',
         'url' => '#',
         'htmlOptions' => array(
             'id' => 'submit',
@@ -91,10 +91,10 @@
        $.post($(this).attr("href"), function(data, textStatus) {
            if (textStatus == "success")
            {
-               if ($(element).text() == "Flag")
-                   $(element).text("Approve");
+               if ($(element).text() == "标记")
+                   $(element).text("确认");
                else
-                   $(element).text("Flag");
+                   $(element).text("标记");
            }
        });
     });
@@ -116,7 +116,7 @@
             $("#submit").css("background","#9eca80");
         });
     $("#close").click( function () {
-        $("#b").html("Comment on this post");
+        $("#b").html("请填写评论……");
         $("#textbox").html("");
         $("#a").slideUp("fast");
         $("#submit").hide();

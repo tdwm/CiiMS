@@ -74,7 +74,7 @@ class Comments extends CiiModel
 			'metadata' => array(self::HAS_MANY, 'CommentMetadata', 'comment_id'),
 			'parent' => array(self::BELONGS_TO, 'Comments', 'parent_id'),
 			'content' => array(self::BELONGS_TO, 'Content', 'content_id'),
-			'author' => array(self::BELONGS_TO, 'Users', 'user_id'),
+			'author' => array(self::BELONGS_TO, 'User', 'user_id'),
 		);
 	}
 

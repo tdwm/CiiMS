@@ -2,7 +2,7 @@
     <div class="user-photo rounded-img"><?php echo CHtml::image($comment->author->gravatarImage(40)); ?></div>
     <div class="comment">
         <div class="info-row">
-            <span class="name"><?php echo $comment->author->name; ?>:</span>
+            <span class="name"><?php echo $comment->author->username; ?>:</span>
             <span class="timeago" title="<?php echo CTimestamp::formatDate('M d, Y @ h:i a', strtotime($comment->created)); ?>"><?php echo CTimestamp::formatDate('M d, Y @ h:i a', strtotime($comment->created)); ?></span>
             <span class="options">
                 <?php echo CHtml::link('Delete', $this->createUrl('/admin/comments/delete/id/' . $comment->id), array('data-attr-id' => $comment->id, 'class'=>'delete-comment')); ?> |
