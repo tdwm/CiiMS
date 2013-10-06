@@ -81,9 +81,9 @@ class TbNavbar extends CWidget
 			$this->brandOptions['href'] = CHtml::normalizeUrl($this->brandUrl);
 
 			if (isset($this->brandOptions['class']))
-				$this->brandOptions['class'] .= ' brand';
+				$this->brandOptions['class'] .= ' navbar-brand';
 			else
-				$this->brandOptions['class'] = 'brand';
+				$this->brandOptions['class'] = 'navbar-brand';
 		}
 
 		$classes = array('navbar');

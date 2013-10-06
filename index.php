@@ -40,7 +40,8 @@ defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',isset($config['params']['
 // If debug mode is enabled, show us every possible error anywhere.
 if (YII_DEBUG && YII_TRACE_LEVEL == 3) 
 {
-	error_reporting(-1);
+    //error_reporting(-1);
+    error_reporting(E_ALL & ~E_NOTICE);
 	ini_set('display_errors', 1);
 }
 

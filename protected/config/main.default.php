@@ -22,7 +22,7 @@ return array(
     'basePath' => dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
     'name' => NULL,
     'sourceLanguage' => 'en_US',
-    'language' => 'en_US',
+    'language' => 'zh_CN',
     'preload' => array(
         'cii',
         'bootstrap',
@@ -68,11 +68,12 @@ return array(
             'cookieMode'    => 'only', 
         ),
         'urlManager' => array(
-            'class'          => 'CiiURLManager',
-            'cache'          => true,
+           // 'class'          => 'CiiURLManager',
+            //'cache'          => true,
             'urlFormat'      => 'path',
             'showScriptName' => false
         ),
+         
         'db' => array(
             'class'                 => 'CDbConnection',
             'connectionString'      => NULL,
