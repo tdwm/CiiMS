@@ -5,6 +5,8 @@
         <title><?php echo CHtml::encode($this->pageTitle); ?></title>
         <?php $asset=Yii::app()->assetManager->publish(dirname(__FILE__).'/../assets'); ?>
         <?php Yii::app()->clientScript->registerCssFile($asset.'/css/main.css'); ?>
+        <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/jquery.animate-colors-min.js'); ?>
+        <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/jquery-ui-effect.min.js'); ?>
         <?php Yii::app()->clientScript->registerCssFile($asset.'/css/glyphicons.css'); ?>
     </head>
     <body>
@@ -33,7 +35,8 @@
                           ));
                             Yii::app()->clientScript->registerScript(
                                 'myHideEffect',
-                                '$(".fade").animate({opacity: 1.0}, 3000).fadeOut("slow");',
+                                '$(".alert.fade").animate({opacity: 1}, 1500).effect("blind",1800);',
+                                //'$(".alert.fade").effect("blind",1800);',
                                 CClientScript::POS_READY
                             );
                         ?>

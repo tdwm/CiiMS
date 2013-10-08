@@ -46,8 +46,7 @@
     	    	<?php echo $form->hiddenField($model,'parent_id',array('value'=>1)); ?>
     			<?php echo $form->hiddenField($model,'author_id',array('value'=>Yii::app()->user->id,)); ?>
     			<div style="margin-bottom: 20px;">
-    	        <?php if ($preferMarkdown): ?>
-    	            <?php //echo $form->markdownEditorRow($model, 'content', array('height'=>'200px'));?>
+    	        <?php if ($preferUEditor): ?>
                     <?php $this->widget('bootstrap.widgets.TbUEditor',
                         array(
                             'id'=>'editor',

@@ -33,14 +33,23 @@
                     array(
                         'class'=>'bootstrap.widgets.TbButtonColumn',
                         'viewButtonUrl'=>'Yii::app()->createUrl("/" . $data->slug)',
-                        'updateButtonUrl' => 'Yii::app()->createUrl("/admin/categories/save/id/" . $data->id)',
                         'deleteButtonUrl'=>'Yii::app()->createUrl("/admin/categories/delete/id/" . $data->id)',
+                        'buttons'=>array(
+                            'update'=>array(
+                                'url' => 'Yii::app()->createUrl("/admin/categories/save/",array("id"=>$data->id,"ajax"=>true))',
+                                'click'=>'js:function(even){
+                                    even.preventDefault();
+                                    _t = $(this);
+                                    $("#editorForem").load($(this).attr("href")); 
+                                 }',
+                            ),
+                        )
                     ),
                 ),
             ));
         ?>
     </div>
-    <div class="span4 ">
+    <div class="span4 " id="editorForem">
         <?php $this->renderPartial('_form', array('model' => $model)); ?>
     </div>
 </div>

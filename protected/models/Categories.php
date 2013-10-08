@@ -53,12 +53,12 @@ class Categories extends CiiModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('parent_id, name', 'required'),
+			array(' name', 'required'),
 			array('parent_id', 'numerical', 'integerOnly'=>true),
 			array('name, slug', 'length', 'max'=>150),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, parent_id, name, slug', 'safe', 'on'=>'search'),
+			array('id, parent_id, name, slug, path', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,11 +83,12 @@ class Categories extends CiiModel
 	{
 		return array(
 			'id' => 'ID',
-			'parent_id' => 'Parent',
-			'name' => 'Name',
+			'parent_id' => '上级分类',
+			'name' => '名称',
+            'paht' => '路径',
 			'slug' => 'Slug',
-			'created' => 'Created',
-			'updated' => 'Updated',
+			'created' => '创建时间',
+			'updated' => '更新时间',
 		);
 	}
 
@@ -124,8 +125,10 @@ class Categories extends CiiModel
         
 	public function beforeSave()
 	{
-    	if ($this->isNewRecord)
+        if ($this->isNewRecord){
 			$this->created = new CDbExpression('NOW()');
+			$this->updated = new CDbExpression('NOW()');
+        }
 	   	else
 			$this->updated = new CDbExpression('NOW()');
 		
@@ -214,5 +217,12 @@ class Categories extends CiiModel
             return $slug . $id;
         else
             return $this->checkSlug($slug, ($id == NULL ? 1 : ($id+1)));
+    }
+
+    public function getPath($id) {
+        return $this->model()->findByPk($id)->path;
+    }
+    public function getOptionName(){
+        return str_repeat("&nbsp; &nbsp;", substr_count($this->path,',')).$this->name;
     }
 }
