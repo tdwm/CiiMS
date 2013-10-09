@@ -119,7 +119,7 @@ class Content extends CiiModel
 			'comment_count' => '评论数',
 			'like_count' => '收藏数',
 			'tags' => '标签',
-			'slug' => 'Slug',
+			'slug' => '链接标识',
 			'created' => '创建时间',
 			'updated' => '更新时间',
 		);

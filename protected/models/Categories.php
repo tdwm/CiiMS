@@ -83,10 +83,10 @@ class Categories extends CiiModel
 	{
 		return array(
 			'id' => 'ID',
-			'parent_id' => '上级分类',
+			'parent_id' => '上级栏目',
 			'name' => '名称',
             'paht' => '路径',
-			'slug' => 'Slug',
+			'slug' => '英文目录',
 			'created' => '创建时间',
 			'updated' => '更新时间',
 		);

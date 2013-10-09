@@ -1,6 +1,4 @@
 <?php  Yii::import('ext.redactor.*'); ?>
-
-<div class="body-content" style="margin-top:20px;" >
     <?php $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         'id'=>'horizontalForm',
         'type'=>'horizontal',
@@ -189,7 +187,6 @@
 	        <?php endif; ?>
 	    </div>
     <?php $this->endWidget(); ?>
-</div>
 <?php $asset=Yii::app()->assetManager->publish(dirname(__FILE__).'/../../assets'); ?>
 <?php Yii::app()->clientScript->registerCssFile($asset . '/css/jquery.tags.css'); ?>
 <?php Yii::app()->clientScript->registerCssFile($asset . '/css/colorbox.css'); ?>

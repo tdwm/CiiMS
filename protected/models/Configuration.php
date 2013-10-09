@@ -37,12 +37,13 @@ class Configuration extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('key, value, created, updated', 'required'),
+            array('key, created, updated', 'required'),
             array('key', 'length', 'max'=>64),
             array('value', 'length', 'max'=>255),
+            array('hint', 'length', 'max'=>255),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('key, value, created, updated', 'safe', 'on'=>'search'),
+            array('key,hint, value, created, updated', 'safe', 'on'=>'search'),
         );
     }
 
@@ -65,6 +66,7 @@ class Configuration extends CActiveRecord
         return array(
             'key' => 'Key',
             'value' => 'Value',
+            'hint' => '说明',
             'created' => 'Created',
             'updated' => 'Updated',
         );
@@ -83,6 +85,7 @@ class Configuration extends CActiveRecord
 
         $criteria->compare('t.key',$this->key,true);
         $criteria->compare('value',$this->value,true);
+        $criteria->compare('hint',$this->hint,true);
         $criteria->compare('created',$this->created,true);
         $criteria->compare('updated',$this->updated,true);
 		$criteria->order = "created DESC";

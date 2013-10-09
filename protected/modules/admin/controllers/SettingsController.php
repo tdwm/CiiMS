@@ -2,17 +2,18 @@
 
 class SettingsController extends ACiiController
 {	
+    public $layout='settingsWrapper';
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
 	public function actionSave($id=NULL)
-	{
-		if ($id == NULL)
+    {
+        if ($id == NULL)
             $model = new Configuration;
         else
             $model=$this->loadModel($id);
-        
+
         // Uncomment the following line if AJAX validation is needed
         //$this->performAjaxValidation($model);
 
@@ -23,20 +24,24 @@ class SettingsController extends ACiiController
             try {
                 if($model->save())
                 {
-                    Yii::app()->user->setFlash('success', 'Setting has been updated');
+                    Yii::app()->user->setFlash('success', '设置成功');
                     $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
                 }
             } 
             catch (CDbException $e)
             {
-                Yii::app()->user->setFlash('error', 'A setting with that key already exists.');
+                Yii::app()->user->setFlash('error', '已经有相同 key 值的数据.');
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
             }
-            Yii::app()->user->setFlash('error', 'There was an error in your submission, please verify you data before trying again.');
+            Yii::app()->user->setFlash('error', '提交错误，请检查数据再提交');
         }
-        
-        $this->render('_form',array('model'=>$model));
-	}
+
+        if($_GET['ajax']) {
+            $this->renderPartial('_form',array('model'=>$model));
+        } else {
+            $this->render('_form',array('model'=>$model));
+        }
+    }
 
     public function actionManaged()
     {
@@ -128,4 +133,33 @@ class SettingsController extends ACiiController
 			Yii::app()->end();
 		}
 	}
+
+
+    /**
+     * 设置站点相关
+     */
+    public function actionWebSet()
+    {
+        $attributes = array(
+            'disqus_shortname',
+            'useDisqusComments',
+            'contentPaginationSize',
+            'categoryPaginationSize',
+            'bcrypt_cost',
+            'offline',
+            'preferUEditor',
+            'name',
+            'sphinxSource',
+            'sphinxPort',
+            'sphinxHost',
+            'sphinx_enabled',
+            'defaultLanguage',
+            'timezone',
+            'timeFormat',
+            'dateFormat',
+            'autoApproveComments',
+            'notifyAuthorOnComment',
+        );
+        $this->render('webset');
+    }
 }

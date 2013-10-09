@@ -166,34 +166,6 @@ body > .navbar .brand {
     display: none;
 }
 
-.sidebarNav .well {
-    padding-top: 14px;
-}
-
-.sidebarNav .well h5 {
-    margin-top: 0px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #e1e1e8;
-}
-.sidebarNav .control-group {
-    margin-bottom: 10px;
-}
-
-.sidebarNav input.span12 {
-    margin-bottom: 10px;
-}
-.image-holder {
-    margin-top: -20px;
-    margin-left: 5%;
-}
-
-.sidebarNav .image-holder {
-    width: 100%; 
-    display: inline-block; 
-    margin-top: -10px; 
-    margin-left: 7%; 
-    margin-right: auto;
-}
 
 .image-ctrl {
     display: inline-block;
@@ -452,6 +424,20 @@ main .content-container .body-content {
     -moz-box-shadow: rgba(0,0,0,.1) 0 0 5px;
     -webkit-box-shadow: rgba(0,0,0,.1) 0 0 5px;
 }
+main .settings-container {
+    height: 100%;
+    min-height: 100%;
+    padding: 0;
+    width: 100%;
+    min-width: 100%;
+    display: table;
+}
+main .settings-container .sidebar {
+    margin-right: 10px;
+    width: 200px;
+    white-space: nowrap;
+    border-right: 1px solid rgba(0,0,0,.1);
+}
 main .settings-container .sidebar, main .settings-container .body-content {
     display: table-cell;
     vertical-align: top;
@@ -460,6 +446,11 @@ main .settings-container .sidebar, main .settings-container .body-content {
     padding: 0;
     float: left;
     background: #fff;
+}
+main .settings-container .body-content {
+    float: none;
+    width: 100%;
+    background: 0;
 }
 main .settings-container .body-content.preview-container {
     padding-right: 20px;
@@ -471,4 +462,81 @@ main .settings-container .body-content form,main .main-body, main .settings-cont
     overflow: hidden;
     height: 96%;
     min-height: 96%;
+}
+.sidebarNav .well {
+    padding-top: 14px;
+}
+
+.sidebarNav .well h5 {
+    margin-top: 0px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #e1e1e8;
+}
+.sidebarNav .control-group {
+    margin-bottom: 10px;
+}
+
+.sidebarNav input.span12 {
+    margin-bottom: 10px;
+}
+.nano {
+    position: relative;
+    overflow: hidden;
+}
+.nano .rollcontent {
+    position: absolute;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding-right:15px;
+    width:100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.image-holder {
+    margin-top: -20px;
+    margin-left: 5%;
+}
+
+.sidebarNav .image-holder {
+    width: 100%; 
+    display: inline-block; 
+    margin-top: -10px; 
+    margin-left: 7%; 
+    margin-right: auto;
+}
+main .settings-container #main {
+    height: 92%;
+    min-height: 92%;
+}
+main .settings-container .sidebar ul.menu{
+    margin:0
+}
+main .settings-container .sidebar .menu li{
+    cursor:pointer;
+    color:#999;
+    display:block;
+    width:100%;
+    padding:20px;
+    margin:0;
+    border-bottom:1px solid rgba(0,0,0,.1);
+    -webkit-transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -ms-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+    transition:all .2s ease-in-out
+}
+main .settings-container .sidebar .menu li:hover,main .settings-container .sidebar .menu li:hover a,main .settings-container .sidebar .menu li.active,main .settings-container .sidebar .menu li.active a{
+    color:#2D2D29;
+}
+main .settings-container .sidebar .menu li a
+{
+    color:#999;
+    font-size:11px;
+    font-family:'Open Sans';
+    font-weight:600;
+    text-transform:uppercase;
+    padding-left:20px;
+    text-decoration:none
 }

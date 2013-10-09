@@ -1,4 +1,5 @@
 <?php $this->beginContent('//layouts/admin_content'); ?>
+<div class="main-body nano" >
 <?php
 $this->menu = array(
     array(
@@ -13,5 +14,8 @@ $this->menu = array(
 );
 
 ?>
+    <div class="rollcontent" >
         <?php echo $content; ?>
+    </div>
+</div>
 <?php $this->endContent(); ?>

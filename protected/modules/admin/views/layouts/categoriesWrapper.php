@@ -1,4 +1,5 @@
 <?php $this->beginContent('//layouts/admin_content'); ?>
+<div class="main-body nano" >
 <?php
 $this->menu = array(
     array(
@@ -13,7 +14,7 @@ $this->menu = array(
 );
 
 ?>
-<div class="row-fluid" style="margin-top:40px;">
+<div class="row-fluid rollcontent" >
     <div class="span8" style="margin-top: -20px;">
         <?php echo $content; ?>
     </div>
@@ -28,4 +29,5 @@ $this->menu = array(
                 $("#editorForem").load($(this).attr("href")); 
     });
 </script>
+</div>
 <?php $this->endContent(); ?>

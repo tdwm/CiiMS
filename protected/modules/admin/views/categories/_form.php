@@ -53,6 +53,8 @@
 <?php $this->endWidget(); ?>
 <?php
 if($ajax){
-    echo " <script> $('#catboxform').effect('highlight',1200);</script> ";
+    echo " <script> $('#catboxform').effect('highlight',1200);
+           $('#catboxform').notify('在这里修改',{position:'left center',className:'info'}); 
+        </script> ";
 }
 ?>
