@@ -15,13 +15,13 @@
                                 'label' => '添加设置项',
                                 'icon' => 'cogwheels',
                                 'url'=>'/admin/settings/',
-                                'itemOptions' => array('class' => 'active')
+                                //'itemOptions' => array('class' => 'active')
                             ),
                             array(
                                 'label' => '基本设置',
                                 'icon' => 'cogwheels',
-                                'url'=>'/admin/settings/web',
-                                'itemOptions' => array('class' => 'active')
+                                'url'=>'/admin/settings/webset',
+                               // 'itemOptions' => array('class' => 'active')
                             ),
                             array('label' => 'Library', 'url' => '#'),
                             array('label' => 'Applications', 'url' => '#'),

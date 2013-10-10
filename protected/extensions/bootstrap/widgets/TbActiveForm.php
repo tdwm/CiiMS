@@ -350,6 +350,18 @@ class TbActiveForm extends CActiveForm
 	}
 
 	/**
+	 * Renders a timepicker field row.
+	 * @param CModel $model the data model
+	 * @param string $attribute the attribute
+	 * @param array $htmlOptions additional HTML attributes
+	 * @return string the generated row
+	 * @since 0.10.0
+	 */
+	public function sliderRow($model, $attribute, $htmlOptions = array())
+	{
+		return $this->inputRow(TbInput::TYPE_SLIDER, $model, $attribute, null, $htmlOptions);
+	}
+	/**
 	 * Renders a select2 field row
 	 * @param $model
 	 * @param $attribute

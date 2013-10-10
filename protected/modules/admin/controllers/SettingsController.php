@@ -160,6 +160,7 @@ class SettingsController extends ACiiController
             'autoApproveComments',
             'notifyAuthorOnComment',
         );
-        $this->render('webset');
+        $model =new WebSettings;
+        $this->render('webset',array('model'=>$model));
     }
 }
