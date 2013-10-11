@@ -14,7 +14,7 @@ $this->menu = array(
 );
 
 ?>
-    <div class="rollcontent" >
+    <div class="content" >
         <?php echo $content; ?>
     </div>
 </div>

@@ -10,6 +10,7 @@ class WebSettings extends CFormModel
     public $useDisqusComments;
     public $contentPaginationSize;
     public $categoryPaginationSize;
+    public $searchPaginationSize;
     public $bcrypt_cost;
     public $offline;
     public $preferUEditor;
@@ -25,11 +26,13 @@ class WebSettings extends CFormModel
     public $autoApproveComments;
     public $notifyAuthorOnComment;
 
+    public $type = 'webset';
+
     private $attributeLabelsArray = array();
 
-	public function __construct()
+	public function __construct($type = 'webset')
 	{
-        $this->setValue();
+        $this->setValue($type);
 	}
 	/**
 	 * Declares the validation rules.
@@ -39,19 +42,21 @@ class WebSettings extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('name ', 'required'),
-			array('bcrypt_cost,offline,sphinxPort,autoApproveComments,notifyAuthorOnComment,contentPaginationSize,categoryPaginationSize,sphinx_enabled', 'numerical', 'integerOnly'=>true),
+			array('name,dateFormat,timeFormat,timezone ', 'required'),
+			array('defaultLanguage', 'length', 'max'=>50),
+			array('sphinxHost,sphinxSource', 'length', 'max'=>50),
+			array('sphinxPort,searchPaginationSize,bcrypt_cost,offline,sphinxPort,autoApproveComments,notifyAuthorOnComment,contentPaginationSize,categoryPaginationSize,sphinx_enabled', 'numerical', 'integerOnly'=>true),
 		);
 	}
 
-    protected function getKeyNames()
+    protected function getKeyNames($k = 'webset')
     {
-        
-		return array(
+        $settings['webset'] = array(
             'disqus_shortname',
             'useDisqusComments',
             'contentPaginationSize',
             'categoryPaginationSize',
+            'searchPaginationSize',
             'bcrypt_cost',
             'offline',
             'preferUEditor',
@@ -67,6 +72,7 @@ class WebSettings extends CFormModel
             'autoApproveComments',
             'notifyAuthorOnComment',
 		);
+        return $settings[$k];
     }
 	/**
 	 * Declares attribute labels.
@@ -90,6 +96,16 @@ class WebSettings extends CFormModel
         }
         $this->setAttributes($values);
         $this->attributeLabelsArray = $labels;
+    }
+
+    public function save()
+    {
+          $datas = $this->attributes; 
+          foreach($datas as $key => $value){
+              if($value == null) continue;
+              $flag = Configuration::model()->updateByPk($key,array('value'=>$value));
+          }
+          return true;
     }
 
 }

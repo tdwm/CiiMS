@@ -14,7 +14,7 @@ $this->menu = array(
 );
 
 ?>
-<div class="row-fluid rollcontent" >
+<div class="row-fluid content" >
     <div class="span8" style="margin-top: -20px;">
         <?php echo $content; ?>
     </div>

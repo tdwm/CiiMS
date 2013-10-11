@@ -57,7 +57,11 @@ class TbSlider extends CInputWidget
 		} else
 			echo CHtml::textField($name, $this->value, $this->htmlOptions);
 
-        echo "<b class='output' id='{$id}_output'></b>";
+        if(isset($this->options['output']) && $this->options['output'] == true) {
+            echo "<b class='output' id='{$id}_output'>{$this->options['value']}</b>";
+        } else {
+            echo "<b class='output' id='{$id}_output'></b>";
+        }
 
 		$this->registerClientScript($id);
 	}
@@ -77,7 +81,7 @@ class TbSlider extends CInputWidget
 		foreach ($this->events as $event => $handler)
 			echo ".on('{$event}', " . CJavaScript::encode($handler) . ")";
 
-		Yii::app()->getClientScript()->registerScript(__CLASS__ . '#' . $this->getId(), ob_get_clean() . ';');
+        Yii::app()->getClientScript()->registerScript(__CLASS__ . '#' . $this->getId(), ob_get_clean() . '; ');
 
 	}
 }

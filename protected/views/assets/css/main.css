@@ -452,6 +452,37 @@ main .settings-container .body-content {
     width: 100%;
     background: 0;
 }
+main .settings-container .body-content form, main .settings-container .body-content .form {
+    background: none;
+    margin: 20px;
+    overflow: hidden;
+    height: 96%;
+    min-height: 96%;
+}
+main .settings-container .body-content form .header, main .settings-container .body-content .form .header {
+    height: 30px;
+    background: #fff;
+    border: 1px solid #ebeff6;
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 5px;
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 5px;
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+main .settings-container .body-content form .header p, main .settings-container .body-content .form .header p, main .settings-container .body-content .form p {
+    float: left;
+    margin-top: 4px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.pure-form legend {
+    display: block;
+    width: 100%;
+    color: #999;
+    font-size: 13px;
+    border-bottom: 1px solid #e5e5e5;
+}
 main .settings-container .body-content.preview-container {
     padding-right: 20px;
     width: 100%;
@@ -462,6 +493,9 @@ main .settings-container .body-content form,main .main-body, main .settings-cont
     overflow: hidden;
     height: 96%;
     min-height: 96%;
+}
+main .main-body{
+    width:98%;
 }
 .sidebarNav .well {
     padding-top: 14px;
@@ -478,21 +512,6 @@ main .settings-container .body-content form,main .main-body, main .settings-cont
 
 .sidebarNav input.span12 {
     margin-bottom: 10px;
-}
-.nano {
-    position: relative;
-    overflow: hidden;
-}
-.nano .rollcontent {
-    position: absolute;
-    overflow: scroll;
-    overflow-x: hidden;
-    padding-right:15px;
-    width:100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
 .image-holder {
     margin-top: -20px;

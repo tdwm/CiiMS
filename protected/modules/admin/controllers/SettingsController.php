@@ -140,27 +140,19 @@ class SettingsController extends ACiiController
      */
     public function actionWebSet()
     {
-        $attributes = array(
-            'disqus_shortname',
-            'useDisqusComments',
-            'contentPaginationSize',
-            'categoryPaginationSize',
-            'bcrypt_cost',
-            'offline',
-            'preferUEditor',
-            'name',
-            'sphinxSource',
-            'sphinxPort',
-            'sphinxHost',
-            'sphinx_enabled',
-            'defaultLanguage',
-            'timezone',
-            'timeFormat',
-            'dateFormat',
-            'autoApproveComments',
-            'notifyAuthorOnComment',
-        );
         $model =new WebSettings;
+
+        if(isset($_POST['WebSettings'])){
+           $model->attributes = $_POST['WebSettings']; 
+           if($model->validate() && $model->save()){
+                    Yii::app()->user->setFlash('success','修改成功');
+           } else {
+                $errors =  $model->getErrors(); 
+                foreach($errors as $error){
+                    Yii::app()->user->setFlash('waring',$error);
+                }
+           }
+        }
         $this->render('webset',array('model'=>$model));
     }
 }

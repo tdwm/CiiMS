@@ -8,7 +8,9 @@
         <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/jquery.animate-colors-min.js'); ?>
         <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/jquery-ui-effect.min.js'); ?>
         <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/notify.min.js'); ?>
+        <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/jquery.nanoscroller.min.js'); ?>
         <?php Yii::app()->clientScript->registerCssFile($asset.'/css/glyphicons.css'); ?>
+        <?php Yii::app()->clientScript->registerCssFile($asset.'/css/nanoscroller.css'); ?>
     </head>
     <body>
         <section class="hbox">
@@ -32,12 +34,6 @@
                               'fade'=>true,
                               'closeText'=>'×',
                           ));
-                            Yii::app()->clientScript->registerScript(
-                                'myHideEffect',
-                                '$(".alert.fade").animate({opacity: 1}, 1500).effect("blind",1800);',
-                                //'$(".alert.fade").effect("blind",1800);',
-                                CClientScript::POS_READY
-                            );
                         ?>
                         <?php echo $content; ?>  
                 </div>
@@ -45,3 +41,13 @@
        </section>
     </body>
 </html>
+<?php
+
+Yii::app()->clientScript->registerScript(
+    'myHideEffect',
+    '$(".alert.fade").animate({opacity: 1}, 1500).effect("blind",1800);
+    $(".nano").nanoScroller();                         
+    ',
+    CClientScript::POS_READY
+);
+?>
