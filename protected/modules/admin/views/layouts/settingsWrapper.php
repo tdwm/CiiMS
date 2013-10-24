@@ -20,7 +20,7 @@
                                 'url'=>'/admin/settings/webset',
                                // 'itemOptions' => array('class' => 'active')
                             ),
-                            array('label' => 'Library', 'url' => '#'),
+                            array('label' => '社交登陆','icon'=>'twitter', 'url' => '/admin/settings/social'),
                             array('label' => 'Applications', 'url' => '#'),
                             array(
                                 'label' => 'Another list header',

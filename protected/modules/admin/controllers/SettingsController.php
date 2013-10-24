@@ -140,10 +140,10 @@ class SettingsController extends ACiiController
      */
     public function actionWebSet()
     {
-        $model =new WebSettings;
+        $model =new Settings('webset');
 
-        if(isset($_POST['WebSettings'])){
-           $model->attributes = $_POST['WebSettings']; 
+        if(isset($_POST['Settings'])){
+           $model->attributes = $_POST['Settings']; 
            if($model->validate() && $model->save()){
                     Yii::app()->user->setFlash('success','修改成功');
            } else {
@@ -154,5 +154,26 @@ class SettingsController extends ACiiController
            }
         }
         $this->render('webset',array('model'=>$model));
+    }
+
+    /**
+     * 设置站点相关
+     */
+    public function actionSocial()
+    {
+        $model =new Settings('social');
+
+        if(isset($_POST['Settings'])){
+           $model->attributes = $_POST['Settings']; 
+           if($model->validate() && $model->save()){
+                    Yii::app()->user->setFlash('success','修改成功');
+           } else {
+                $errors =  $model->getErrors(); 
+                foreach($errors as $error){
+                    Yii::app()->user->setFlash('waring',$error);
+                }
+           }
+        }
+        $this->render('social',array('model'=>$model));
     }
 }

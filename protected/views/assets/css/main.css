@@ -93,7 +93,9 @@ html,body {
 body > .navbar .brand {
     padding-left: 20px; 
 }
-
+.navbar .toggle-button {
+  margin-top: 5px;
+}
 .list-view .well {
     padding: 5px 19px;
 }
@@ -121,6 +123,7 @@ body > .navbar .brand {
     text-overflow: ellipsis;
     max-height: 165px;
     width: 100%;
+    position: relative;
 }
 
 .list-view .items #content-well .author-block .nav-header {

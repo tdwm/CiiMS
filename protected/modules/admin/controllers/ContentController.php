@@ -17,12 +17,12 @@ class ContentController extends ACiiController
         $layouts   = $this->getLayouts($theme);
         
          // Editor Preferences
-        $preferMarkdown = Cii::getConfig('preferMarkdown',false);
+        $preferUEditor = Cii::getConfig('preferUEditor',false);
 
-        if ($preferMarkdown == NULL)
-            $preferMarkdown = false;
+        if ($preferUEditor == NULL)
+            $preferUEditor = false;
         else
-            $preferMarkdown = (bool)$preferMarkdown;
+            $preferUEditor = (bool)$preferUEditor;
         
         // Determine what we're doing, new model or existing one
 		if ($id == NULL)
@@ -82,7 +82,7 @@ class ContentController extends ACiiController
 			'model'          =>  $model,
 			'id'             =>  $id,
 			'version'        =>  $version,
-			'preferMarkdown' =>  $preferMarkdown,
+			'preferUEditor'  =>  $preferUEditor,
 			'attachments' 	 =>  $attachments,
 			'views'          =>  $viewFiles,
 			'layouts'        =>  $layouts 
