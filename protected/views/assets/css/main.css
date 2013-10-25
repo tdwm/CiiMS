@@ -441,6 +441,14 @@ main .settings-container .sidebar {
     white-space: nowrap;
     border-right: 1px solid rgba(0,0,0,.1);
 }
+
+main .settings-container .sidebar .header{
+    text-align:center;
+}
+
+main .settings-container .sidebar a:hover,main .settings-container .sidebar li.active a {
+    background:none;
+}
 main .settings-container .sidebar, main .settings-container .body-content {
     display: table-cell;
     vertical-align: top;
@@ -555,8 +563,7 @@ main .settings-container .sidebar .menu li:hover,main .settings-container .sideb
 main .settings-container .sidebar .menu li a
 {
     color:#999;
-    font-size:11px;
-    font-family:'Open Sans';
+    font-size:14px;
     font-weight:600;
     text-transform:uppercase;
     padding-left:20px;
