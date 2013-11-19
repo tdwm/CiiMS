@@ -34,6 +34,13 @@ return array(
     ),
     'modules' => array(
         'admin',
+        'gii'=>array(
+            'class'=>'system.gii.GiiModule',
+            'password'=>'wangchao',
+            'generatorPaths'=>array(
+                'ext.bootstrap.gii',
+            ),
+        ),
     ),
     'behaviors' => array(
         'onBeginRequest' => array(

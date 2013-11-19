@@ -8,6 +8,7 @@
 	<?php $this->widget('ext.yiinfinite-scroll.YiinfiniteScroller', array(
 	    'url'=>isset($url) ? $url : 'blog',
 	    'contentSelector' => '#posts',
+	    'contentSelector' => '#posts',
 	    'pages' => $pages,
 	    'defaultCallback' => "js:function(response, data) { 
 	    	var url = response.options.path.join(response.options.state.currPage);

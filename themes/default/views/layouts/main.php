@@ -33,11 +33,13 @@
 		</header>
 		
 		<main class="main">
+            <!--
 		    <div class="container image-container">
 		    	<div class="row-fluid image-viewport">
-		    		<?php echo CHtml::image(Yii::app()->getBaseUrl(true) . Cii::getConfig('splash-logo', '/images/splash-logo.jpg')); ?>
+		    		<?php //echo CHtml::image(Yii::app()->getBaseUrl(true) . Cii::getConfig('splash-logo', '/images/splash-logo.jpg')); ?>
 		    	</div>
 		   	</div>
+            -->
 		   	<div class="container main-container">
                 <div class="row-fluid main-body">
                     <?php echo $content; ?>

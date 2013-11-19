@@ -73,8 +73,8 @@ class UCiiController extends CiiController
         array(
         	'label'=>'Settings', 
         	'icon'=>'cog', 
-        	'url'=>$this->createUrl('/admin/settings/'), 
-        	'active'=>$this->id == 'settings' ? true : false
+        	'url'=>$this->createUrl('/weixin/'), 
+        	'active'=>$this->id == 'weixin' ? true : false
 		),
 	);
 		return true;

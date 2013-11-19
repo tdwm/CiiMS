@@ -56,8 +56,8 @@ class CiiURLManager extends CUrlManager
 	 * making sure the client updates their main.php file on updates.
 	 * @var array
 	 */
-	public $defaultRules = array(
-		'/sitemap.xml' 						=> '/site/sitemap',
+    public $defaultRules = array(
+        '/sitemap.xml' 						=> '/site/sitemap',
         '/search/<page:\d+>' 				=> '/site/mysqlsearch',
         '/search' 							=> '/site/mysqlsearch',
         '/hybridauth/<provider:\w+>'		=> '/hybridauth',
@@ -72,13 +72,17 @@ class CiiURLManager extends CUrlManager
         '/forgot' 							=> '/site/forgot',
         '/register' 						=> '/site/register',
         '/register-success' 				=> '/site/registersuccess',
-        '/login'							=> '/site/login',
+        //'/login'							=> '/site/login',
+        '/login'							=> '/user/login',
         '/logout' 							=> '/site/logout',
         '/profile/edit'						=> '/profile/edit',
         '/profile/<id:\w+>/<displayName:\w+>' => '/profile/index',
         '/profile/<id:\w+>' 				=> '/profile/index',
-        '/admin' 							=> '/admin'
-	);
+        '/admin' 							=> '/admin',
+        'gii'=>'gii',
+        'gii/<controller:\w+>'=>'gii/<controller>',
+        'gii/<controller:\w+>/<action:\w+>'=>'gii/<controller>/<action>',
+    );
 
 	/**
 	 * Overrides processRules, allowing us to inject our own ruleset into the URL Manager

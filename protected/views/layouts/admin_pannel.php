@@ -13,7 +13,7 @@ if (Yii::app()->getModule('user')->isAdmin()){
     $left_menu = array(
         array('icon'=>'icon-show-big-thumbnails','url'=>'','active'=>''),
         array('icon'=>'icon-pencil','url'=>'','active'=>''),
-        array('icon'=>'icon-cogwheels','url'=>'','active'=>''),
+        array('icon'=>'icon-cogwheels','url'=>'/weixin','active'=>''),
         array('icon'=>'icon-user','url'=>'/user/user/update','active'=>'')
     );
 
