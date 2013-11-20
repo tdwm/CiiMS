@@ -190,7 +190,7 @@ Yii::app()->clientScript->registerScript('buttonGroup', "
         <div class="image-ctrl" id="<?php echo $attachment->key; ?>">
             <?php echo CHtml::image(Yii::app()->baseUrl . $attachment->value, NULL, array('class'=> 'thumb', 'href' => Yii::app()->baseUrl.$attachment->value, 'title' => $attachment->value)); ?>
             <span class="delete-button icon icon-remove" id="<?php echo $attachment->key; ?>"></span>
-            <span class="star-button icon icon-star-empty" id="<?php echo $attachment->key; ?>"></span>
+            <span class="star-button icon icon-dislikes" id="<?php echo $attachment->key; ?>"></span>
         </div>
         <?php endforeach; ?>
         <li id="new-attachment" style="display:none;"></li>

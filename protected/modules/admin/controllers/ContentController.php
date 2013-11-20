@@ -241,7 +241,7 @@ class ContentController extends ACiiController
         {
             Yii::import("ext.EAjaxUpload.qqFileUploader");
             $path = '/';
-            $folder=Yii::app()->getBasePath() .'/../assets/uploads' . $path;// folder for uploaded files
+            $folder=Yii::app()->getBasePath() .'/../uploads' . $path;// folder for uploaded files
             $allowedExtensions = array('jpg', 'jpeg', 'png', 'gif', 'bmp');//array("jpg","jpeg","gif","exe","mov" and etc...
             $sizeLimit = 10 * 1024 * 1024;// maximum file size in bytes
             $uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
@@ -254,9 +254,9 @@ class ContentController extends ACiiController
                     $meta = new ContentMetadata;
                 $meta->content_id = $id;
                 $meta->key = $result['filename'];
-                $meta->value = '/assets/uploads' . $path . $result['filename'];
+                $meta->value = '/uploads' . $path . $result['filename'];
                 $meta->save();
-                $result['filepath'] = '/assets/uploads/' . $result['filename'];
+                $result['filepath'] = '/uploads/' . $result['filename'];
             }
             $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
 
