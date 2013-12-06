@@ -9,7 +9,6 @@
         <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/jquery-ui-effect.min.js'); ?>
         <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/notify.min.js'); ?>
         <?php Yii::app()->clientScript->registerScriptFile($asset.'/js/jquery.nanoscroller.min.js'); ?>
-        <?php Yii::app()->clientScript->registerCssFile($asset.'/css/glyphicons.css'); ?>
         <?php Yii::app()->clientScript->registerCssFile($asset.'/css/nanoscroller.css'); ?>
     </head>
     <body>

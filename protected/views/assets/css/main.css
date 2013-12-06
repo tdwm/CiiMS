@@ -199,7 +199,7 @@ body > .navbar .brand {
     border: 1px solid #468847;
 }
 .qq-upload-button {
-    top: -34px;
+    top: 0px;
 }
 .contentSidebar .bootstrap-widget-content {
     padding-top: 0px;
@@ -437,7 +437,7 @@ main .settings-container {
 }
 main .settings-container .sidebar {
     margin-right: 10px;
-    width: 200px;
+    width: 160px;
     white-space: nowrap;
     border-right: 1px solid rgba(0,0,0,.1);
 }
