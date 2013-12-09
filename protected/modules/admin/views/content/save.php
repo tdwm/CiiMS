@@ -183,7 +183,8 @@ Yii::app()->clientScript->registerScript('buttonGroup', "
         }
         }"
         )
-    )); ?></h5>
+    )); ?>
+</h5>
     <div style="clear:both;"></div>
     <div class="image-holder ">
         <?php foreach ($attachments as $attachment): ?>
