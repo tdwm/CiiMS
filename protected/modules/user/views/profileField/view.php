@@ -1,0 +1,21 @@
+<?php $this->widget('bootstrap.widgets.TbDetailView', array(
+	'data'=>$model,
+	'attributes'=>array(
+		'id',
+		'varname',
+		'title',
+		'field_type',
+		'field_size',
+		'field_size_min',
+		'required',
+		'match',
+		'range',
+		'error_message',
+		'other_validator',
+		'widget',
+		'widgetparams',
+		'default',
+		'position',
+		'visible',
+	),
+)); ?>

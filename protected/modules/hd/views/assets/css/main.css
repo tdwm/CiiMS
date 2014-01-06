@@ -1,0 +1,47 @@
+.previewThumb {
+    position:relative;
+    display:block;
+    text-align:center;
+    height:250px;
+    overflow:hidden;
+}
+
+.upload_mask{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(229, 229, 229, 0.85) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#d9e5e5e5',endcolorstr = '#d9e5e5e5');
+    text-align: center;
+}
+.upload_preview{
+    width: 100%;
+    overflow:hidden;
+    height:auto;
+}
+.pre_text {
+    display: block;
+    color: #c0c0c0;
+    text-align: center;
+    line-height: 250px;
+    font-weight: 100%;
+    font-style: normal;
+    background-color: #ececec;
+    font-size: 22px;
+}
+.pre_thumb{
+    display:none;
+    width:100%;
+}
+.uploadImgBottun  {
+    line-height:250px;
+    color: #000000;
+    font-size: 22px;
+}
+.uploadImgBottun input[type="file"]{
+    width:100%;
+    height:100%;
+}
